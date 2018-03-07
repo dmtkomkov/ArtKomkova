@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material';
 
@@ -7,12 +7,15 @@ import { MatIconRegistry } from '@angular/material';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
-    iconRegistry.addSvgIcon(
-      'color-lens',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/img/color_lens.svg'));
-  }
+export class AppComponent implements OnInit {
+  constructor(
+    private iconRegistry: MatIconRegistry,
+    private sanitizer: DomSanitizer
+  ) {  }
 
-  title = 'Art Komkova!!!';
+  ngOnInit() {
+    this.iconRegistry.addSvgIcon(
+      'color-lens',
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/img/color_lens.svg'));
+  }
 }
