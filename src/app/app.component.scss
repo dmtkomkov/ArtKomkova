@@ -1,9 +1,10 @@
 .mat-toolbar {
-  line-height: 0px; // make toolbar buttons ajusted to center
-}
-
-.mat-icon {
-  height: 36px;
-  width: 36px;
-  padding: 10px;
+  line-height: 0px; // Make toolbar buttons adjusted to center
+  a {
+    font-size: 16px; // Increase logo text
+  }
+  .mat-icon {
+    height: 36px;
+    width: 36px;
+  }
 }
