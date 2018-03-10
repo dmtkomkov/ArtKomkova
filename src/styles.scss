@@ -24,3 +24,8 @@ $art-app-theme: mat-light-theme($art-app-primary, $art-app-accent, $art-app-warn
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($art-app-theme);
+
+body {
+  margin: 0px;
+  padding-top: 48px;
+}
