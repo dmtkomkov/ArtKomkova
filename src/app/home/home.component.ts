@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  getCollections(): string[] {
+  getCollections(): Observable<any> {
     return Observable.of(
       [
         { 'name': 'collection1', 'cover': '19913' },
