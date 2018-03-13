@@ -5,14 +5,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { Routes, RouterModule } from '@angular/router';
-import {FlexLayoutModule} from "@angular/flex-layout";
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
+import { CollectionComponent } from './collection/collection.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'collections/:name', component: CollectionComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
@@ -21,6 +23,7 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     PageNotFoundComponent,
+    CollectionComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
