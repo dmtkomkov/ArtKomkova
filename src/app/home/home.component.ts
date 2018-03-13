@@ -24,10 +24,9 @@ export class HomeComponent implements OnInit {
   getCollections(): Observable<any> {
     return Observable.of(
       [
-        { 'name': 'collection1', 'cover': '19913/0PmgzMwehFk.jpg' },
-        { 'name': 'collection2', 'cover': '19914/0PmgzMwehFk.jpg' },
-        { 'name': 'collection3', 'cover': '19915/0PmgzMwehFk.jpg' },
-        { 'name': 'collection4', 'cover': '19916/0PmgzMwehFk.jpg' },
+        { 'name': 'Portraits', 'cover': '19918/0PmgzMwehFk.jpg' },
+        { 'name': 'Watercolor', 'cover': '20365/6e5aF7HwsMU.jpg' },
+        { 'name': 'Ballerina', 'cover': '22215/8.jpg' },
       ]
     );
   }
