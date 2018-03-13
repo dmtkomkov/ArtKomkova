@@ -9,6 +9,7 @@ import 'rxjs/add/observable/of';
 })
 export class HomeComponent implements OnInit {
   collections: string[];
+  baseImageUrl: string = 'http://illustrators.ru/uploads/album_image/image/';
 
   constructor() { }
 
@@ -23,10 +24,10 @@ export class HomeComponent implements OnInit {
   getCollections(): Observable<any> {
     return Observable.of(
       [
-        { 'name': 'collection1', 'cover': '19913' },
-        { 'name': 'collection2', 'cover': '19914' },
-        { 'name': 'collection3', 'cover': '19915' },
-        { 'name': 'collection4', 'cover': '19916' },
+        { 'name': 'collection1', 'cover': '19913/0PmgzMwehFk.jpg' },
+        { 'name': 'collection2', 'cover': '19914/0PmgzMwehFk.jpg' },
+        { 'name': 'collection3', 'cover': '19915/0PmgzMwehFk.jpg' },
+        { 'name': 'collection4', 'cover': '19916/0PmgzMwehFk.jpg' },
       ]
     );
   }
