@@ -1,3 +1,5 @@
-<p>
-  collection {{ collection }} works!
-</p>
+<div class="container" fxLayout="row wrap" fxLayoutAlign="start">
+  <button mat-raised-button class="item" *ngFor="let image of collection">
+    <img [src]="baseImageUrl + image">
+  </button>
+</div>

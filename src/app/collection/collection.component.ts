@@ -2,13 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 
+import { collections } from './collection.consts';
+
 @Component({
   selector: 'app-collection',
   templateUrl: './collection.component.html',
-  styleUrls: ['./collection.component.scss']
+  styleUrls: ['./collection.component.scss'],
 })
 export class CollectionComponent implements OnInit {
-  collection: string;
+  collection: any;
+  baseImageUrl: string = 'http://illustrators.ru/uploads/album_image/image/';
 
   constructor(
     private route: ActivatedRoute,
@@ -17,6 +20,8 @@ export class CollectionComponent implements OnInit {
   ngOnInit() {
     this.route.params
       .map(params => params['name'])
-      .subscribe(collection => this.collection = collection);
+      .subscribe(name => {
+        this.collection = collections[name];
+      );
   }
 }
