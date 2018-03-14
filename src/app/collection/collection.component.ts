@@ -22,6 +22,6 @@ export class CollectionComponent implements OnInit {
       .map(params => params['name'])
       .subscribe(name => {
         this.collection = collections[name];
-      );
+      });
   }
 }
