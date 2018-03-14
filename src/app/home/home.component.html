@@ -1,5 +1,8 @@
 <div class="container" fxLayout="row wrap" fxLayoutAlign="start">
   <a routerLink="/collections/{{collection.name}}" class="item" *ngFor="let collection of collections">
-    <img [src]="baseImageUrl + collection.cover">
+    <div class="image">
+      <img [src]="baseImageUrl + collection.cover">
+    </div>
+    <div class="text">{{ collection.name }}</div>
   </a>
 </div>

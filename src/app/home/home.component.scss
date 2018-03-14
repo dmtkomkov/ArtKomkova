@@ -9,15 +9,39 @@
   margin: 10px;
 }
 
-img {
-  max-height: 100%;
-  max-width: 100%;
-  width: auto;
-  height: auto;
+img, .text {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
   margin: auto;
+}
+
+.text {
+  font-size: 32px;
+  line-height: 300px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.image, .text, .item:hover .text, .item:hover .image {
+  transition: .5s ease;
+}
+
+.item {
+  .image { opacity: 1 }
+  .text { opacity: 0 }
+}
+
+.item:hover {
+  .image { opacity: 0.5 }
+  .text { opacity: 1 }
 }
