@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Routes, RouterModule } from '@angular/router';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatDialogModule } from '@angular/material/dialog';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -38,7 +38,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     MatButtonModule,
     MatDialogModule,
-    BrowserAnimationsModule,
+    NoopAnimationsModule,
   ],
   providers: [],
   entryComponents: [ ImageComponent ],
