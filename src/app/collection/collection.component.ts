@@ -29,9 +29,9 @@ export class CollectionComponent implements OnInit {
   }
 
   showImage(image) {
+    console.log(image);
     let dialogRef = this.dialog.open(ImageComponent, {
-      width: '250px',
-      data: { name: 'Dima' }
+      data: { image: image },
     });
   }
 }
