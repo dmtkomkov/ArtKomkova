@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material';
 import 'rxjs/add/operator/map';
+import { ImageComponent } from '../dialogs/image/image.component';
 
 import { collections } from './collection.consts';
 
@@ -15,6 +17,7 @@ export class CollectionComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit() {
@@ -23,5 +26,12 @@ export class CollectionComponent implements OnInit {
       .subscribe(name => {
         this.collection = collections[name];
       });
+  }
+
+  showImage(image) {
+    let dialogRef = this.dialog.open(ImageComponent, {
+      width: '250px',
+      data: { name: 'Dima' }
+    });
   }
 }

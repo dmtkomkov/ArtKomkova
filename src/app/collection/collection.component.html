@@ -1,5 +1,5 @@
 <div class="container" fxLayout="row wrap" fxLayoutAlign="start">
-  <button mat-raised-button class="item" *ngFor="let image of collection">
+  <button mat-raised-button class="item" *ngFor="let image of collection" (click)="showImage(image)">
     <img [src]="baseImageUrl + image">
   </button>
 </div>

@@ -6,11 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { Routes, RouterModule } from '@angular/router';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.component';
 import { CollectionComponent } from './collection/collection.component';
+import { ImageComponent } from './dialogs/image/image.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,6 +27,7 @@ const appRoutes: Routes = [
     HomeComponent,
     PageNotFoundComponent,
     CollectionComponent,
+    ImageComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -33,8 +37,11 @@ const appRoutes: Routes = [
     MatIconModule,
     HttpClientModule,
     MatButtonModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [ AppComponent ]
+  entryComponents: [ ImageComponent ],
+  bootstrap: [ AppComponent ],
 })
 export class AppModule { }
