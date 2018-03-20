@@ -23,4 +23,8 @@ export class ImageComponent {
       'close',
       this.sanitizer.bypassSecurityTrustResourceUrl('assets/img/close.svg'));
   }
+
+  closeDialog(): void {
+    this.dialogRef.close();
+  }
 }
