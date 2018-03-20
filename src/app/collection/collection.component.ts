@@ -29,7 +29,6 @@ export class CollectionComponent implements OnInit {
   }
 
   showImage(image) {
-    console.log(image);
     let dialogRef = this.dialog.open(ImageComponent, {
       data: { image: image },
     });
