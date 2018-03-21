@@ -1,4 +1,9 @@
 <img #image [src]="baseImageUrl + data.image">
-<button [style.right.px] = "image.x" [style.top.px] = "image.y" mat-icon-button (click)="closeDialog()">
-  <mat-icon svgIcon="close"></mat-icon>
-</button>
+<mat-icon
+  mat-icon-button
+  svgIcon="close"
+  [style.right.px]="image.x"
+  [style.top.px]="image.y"
+  (click)="closeDialog()"
+>
+</mat-icon>
