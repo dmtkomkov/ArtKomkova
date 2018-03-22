@@ -8,17 +8,26 @@ import { MatIconRegistry } from '@angular/material';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  readonly icons = [
+    'color-lens',
+    'close',
+    'arrow-left',
+    'arrow-right',
+  ]
   constructor(
     private iconRegistry: MatIconRegistry,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
   ) {  }
 
   ngOnInit() {
-    this.iconRegistry.addSvgIcon(
-      'color-lens',
-      this.sanitizer.bypassSecurityTrustResourceUrl('assets/img/color_lens.svg'));
-    this.iconRegistry.addSvgIcon(
-      'close',
-      this.sanitizer.bypassSecurityTrustResourceUrl('assets/img/close.svg'));
+    for (let icon of this.icons) {
+      this.iconRegistry.addSvgIcon(
+        icon,
+        this.sanitizer.bypassSecurityTrustResourceUrl(
+          'assets/img/' + icon + '.svg'
+        )
+      );
+    }
+
   }
 }
