@@ -17,5 +17,8 @@ export class AppComponent implements OnInit {
     this.iconRegistry.addSvgIcon(
       'color-lens',
       this.sanitizer.bypassSecurityTrustResourceUrl('assets/img/color_lens.svg'));
+    this.iconRegistry.addSvgIcon(
+      'close',
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/img/close.svg'));
   }
 }
