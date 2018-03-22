@@ -22,3 +22,10 @@ img {
 .mat-icon:hover {
   opacity: 1;
 }
+
+.mat-icon[svgicon="arrow-left"],
+.mat-icon[svgicon="arrow-right"] {
+  height: 100px;
+  width: 100px;
+  bottom: 0;
+}
