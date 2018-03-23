@@ -1,23 +1,47 @@
 <img #image [src]="baseImageUrl + data.image">
-<mat-icon
-  mat-icon-button
-  svgIcon="close"
+
+<button
+  mat-button
+  [style.width.px]="(image.width + image.height)/15"
+  [style.height.px]="(image.width + image.height)/15"
   [style.right.px]="image.x"
   [style.top.px]="image.y"
   (click)="closeDialog()"
 >
-</mat-icon>
-<mat-icon
-  mat-icon-button
-  svgIcon="arrow-left"
+  <mat-icon
+    svgIcon="close"
+    [style.width.px]="(image.width + image.height)/15"
+    [style.height.px]="(image.width + image.height)/15"
+  >
+  </mat-icon>
+</button>
+
+<button
+  mat-button
+  [style.width.px]="(image.width + image.height)/15"
+  [style.height.px]="(image.width + image.height)/15"
   [style.left.px]="image.x"
-  [style.bottom.px]="image.y"
+  [style.bottom.px]="image.y + image.height/2 - (image.width + image.height)/15/2"
 >
-</mat-icon>
-<mat-icon
-  mat-icon-button
-  svgIcon="arrow-right"
+  <mat-icon
+    svgIcon="arrow-left"
+    [style.width.px]="(image.width + image.height)/15"
+    [style.height.px]="(image.width + image.height)/15"
+  >
+  </mat-icon>
+</button>
+
+<button
+  mat-button
+  [style.width.px]="(image.width + image.height)/15"
+  [style.height.px]="(image.width + image.height)/15"
   [style.right.px]="image.x"
-  [style.bottom.px]="image.y"
+  [style.bottom.px]="image.y + image.height/2 - (image.width + image.height)/15/2"
 >
-</mat-icon>
+  <mat-icon
+    svgIcon="arrow-right"
+    [style.width.px]="(image.width + image.height)/15"
+    [style.height.px]="(image.width + image.height)/15"
+  >
+  </mat-icon>
+</button>

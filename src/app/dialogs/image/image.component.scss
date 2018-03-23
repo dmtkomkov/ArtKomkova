@@ -11,20 +11,16 @@ img {
   margin: auto;
 }
 
-.mat-icon {
-  height: 40px;
-  width: 40px;
+.mat-button {
   cursor: pointer;
   position: absolute;
+  min-width: 10px;
+  min-height: 10px;
+  line-height: 0;
+  padding: 0;
   opacity: 0.3;
 }
 
-.mat-icon:hover {
+.mat-button:hover {
   opacity: 1;
-}
-
-.mat-icon[svgicon="arrow-left"],
-.mat-icon[svgicon="arrow-right"] {
-  height: 100px;
-  width: 100px;
 }
