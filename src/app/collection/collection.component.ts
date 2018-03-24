@@ -15,6 +15,7 @@ import { DialogService } from '../services/dialog/dialog.service';
 export class CollectionComponent implements OnInit {
   collection: any;
   baseImageUrl: string = 'http://illustrators.ru/uploads/album_image/image/';
+  selectedImage: string = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,9 +28,13 @@ export class CollectionComponent implements OnInit {
       .subscribe(name => {
         this.collection = collections[name];
       });
+    this.dialogService.dialogEvent.subscribe(
+      res => console.log(res)
+    );
   }
 
   showImage(image) {
+    this.selectedImage = image;
     this.dialogService.openDialog(ImageComponent, { image: image });
   }
 }

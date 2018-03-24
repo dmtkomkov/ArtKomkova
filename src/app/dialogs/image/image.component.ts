@@ -18,13 +18,14 @@ export class ImageComponent {
 
   closeImage(): void {
     this.dialogService.closeDialog();
+    this.dialogService.dialogEvent.emit(null);
   }
 
   showPrevImage(): void {
-    console.log('Prev Image');
+    this.dialogService.dialogEvent.emit("prev");
   }
 
   showNextImage(): void {
-    console.log('Next Image');
+    this.dialogService.dialogEvent.emit("next");
   }
 }
