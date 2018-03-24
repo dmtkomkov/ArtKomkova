@@ -16,13 +16,4 @@ export class DialogService {
   closeDialog(): void {
     this.dialogRef.close();
   }
-
-  showPrevImage(): void {
-    console.log('Prev Image');
-  }
-
-  showNextImage(): void {
-    console.log('Next Image');
-  }
-
 }
