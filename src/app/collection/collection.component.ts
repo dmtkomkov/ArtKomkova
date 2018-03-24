@@ -13,7 +13,7 @@ import { DialogService } from '../services/dialog/dialog.service';
   styleUrls: ['./collection.component.scss'],
 })
 export class CollectionComponent implements OnInit {
-  collection: any;
+  collection: Array<string>;
   baseImageUrl: string = 'http://illustrators.ru/uploads/album_image/image/';
   selectedImage: string = null;
 
@@ -28,13 +28,19 @@ export class CollectionComponent implements OnInit {
       .subscribe(name => {
         this.collection = collections[name];
       });
-    this.dialogService.dialogEvent.subscribe(
-      res => console.log(res)
-    );
+
+    this.dialogService.dialogEvent.subscribe(res => {
+      let idx: number = this.collection.indexOf(this.selectedImage);
+      if (res == 'prev') this.selectedImage = this.collection[idx - 1]
+      else if (res == 'next') this.selectedImage = this.collection[idx + 1]
+      else if (res == null) this.selectedImage = null
+      this.dialogService.changeDialogData({ image: this.selectedImage })
+    });
   }
 
   showImage(image) {
     this.selectedImage = image;
-    this.dialogService.openDialog(ImageComponent, { image: image });
+    this.dialogService.openDialog(ImageComponent, { image: this.selectedImage });
+    //this.dialogService.changeDialogData({ image : '19921/0PmgzMwehFk.jpg' })
   }
 }

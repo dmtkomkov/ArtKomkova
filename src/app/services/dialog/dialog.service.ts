@@ -16,6 +16,10 @@ export class DialogService {
     this.dialogRef = this.dialog.open(component, { data: data });
   }
 
+  changeDialogData(data: any): void {
+    this.dialogRef.componentInstance.data = data;
+  }
+
   closeDialog(): void {
     this.dialogRef.close();
   }
