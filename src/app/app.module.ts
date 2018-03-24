@@ -15,6 +15,8 @@ import { PageNotFoundComponent } from './errors/page-not-found/page-not-found.co
 import { CollectionComponent } from './collection/collection.component';
 import { ImageComponent } from './dialogs/image/image.component';
 
+import { DialogService } from './services/dialog/dialog.service';
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'collections/:name', component: CollectionComponent },
@@ -40,7 +42,9 @@ const appRoutes: Routes = [
     MatDialogModule,
     NoopAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    DialogService,
+  ],
   entryComponents: [ ImageComponent ],
   bootstrap: [ AppComponent ],
 })
