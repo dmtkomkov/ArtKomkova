@@ -3,7 +3,7 @@ import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 
 @Injectable()
 export class DialogService {
-  public dialogRef: MatDialogRef;
+  private dialogRef: MatDialogRef;
 
   constructor(
     private dialog: MatDialog;
