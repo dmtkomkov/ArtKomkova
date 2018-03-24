@@ -6,7 +6,7 @@
   [style.height.px]="(image.width + image.height)/15"
   [style.right.px]="image.x"
   [style.top.px]="image.y"
-  (click)="closeDialog()"
+  (click)="closeImage()"
 >
   <mat-icon
     svgIcon="close"
@@ -22,6 +22,7 @@
   [style.height.px]="(image.width + image.height)/15"
   [style.left.px]="image.x"
   [style.top.px]="image.y + image.height/2 - (image.width + image.height)/15/2"
+  (click)="showPrevImage()"
 >
   <mat-icon
     svgIcon="arrow-left"
@@ -37,6 +38,7 @@
   [style.height.px]="(image.width + image.height)/15"
   [style.right.px]="image.x"
   [style.top.px]="image.y + image.height/2 - (image.width + image.height)/15/2"
+  (click)="showNextImage()"
 >
   <mat-icon
     svgIcon="arrow-right"

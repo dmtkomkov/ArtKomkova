@@ -1,5 +1,7 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+import { DialogService } from '../../services/dialog/dialog.service';
 
 @Component({
   selector: 'image',
@@ -8,13 +10,21 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class ImageComponent {
   baseImageUrl: string = 'http://illustrators.ru/uploads/album_image/image/';
-
+  
   constructor(
-    public dialogRef: MatDialogRef<ImageComponent>,
+    private dialogService: DialogService,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) { }
 
-  closeDialog(): void {
-    this.dialogRef.close();
+  closeImage(): void {
+    this.dialogService.closeDialog();
+  }
+
+  showPrevImage(): void {
+    console.log('Prev Image');
+  }
+
+  showNextImage(): void {
+    console.log('Next Image');
   }
 }

@@ -1,10 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MatDialog } from '@angular/material';
 import 'rxjs/add/operator/map';
 import { ImageComponent } from '../dialogs/image/image.component';
 
 import { collections } from './collection.consts';
+
+import { DialogService } from '../services/dialog/dialog.service';
 
 @Component({
   selector: 'app-collection',
@@ -17,7 +18,7 @@ export class CollectionComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    public dialog: MatDialog,
+    private dialogService: DialogService,
   ) { }
 
   ngOnInit() {
@@ -29,8 +30,6 @@ export class CollectionComponent implements OnInit {
   }
 
   showImage(image) {
-    let dialogRef = this.dialog.open(ImageComponent, {
-      data: { image: image },
-    });
+    this.dialogService.openDialog(ImageComponent, { image: image });
   }
 }
