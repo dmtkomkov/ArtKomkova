@@ -10,7 +10,7 @@ import { DialogService } from '../../services/dialog/dialog.service';
 })
 export class ImageComponent {
   baseImageUrl: string = 'http://illustrators.ru/uploads/album_image/image/';
-  
+
   constructor(
     private dialogService: DialogService,
     @Inject(MAT_DIALOG_DATA) public data: any,
