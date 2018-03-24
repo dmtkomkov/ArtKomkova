@@ -7,7 +7,7 @@ export class DialogService {
   public dialogEvent: EventEmitter<string>;
 
   constructor(
-    private dialog: MatDialog;
+    private dialog: MatDialog,
   ) {
     this.dialogEvent = new EventEmitter();
   }
