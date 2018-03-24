@@ -2,48 +2,36 @@
 
 <button
   mat-button
-  [style.width.px]="(image.width + image.height)/15"
-  [style.height.px]="(image.width + image.height)/15"
   [style.right.px]="image.x"
   [style.top.px]="image.y"
   (click)="closeImage()"
 >
   <mat-icon
     svgIcon="close"
-    [style.width.px]="(image.width + image.height)/15"
-    [style.height.px]="(image.width + image.height)/15"
   >
   </mat-icon>
 </button>
 
 <button
   mat-button
-  [style.width.px]="(image.width + image.height)/15"
-  [style.height.px]="(image.width + image.height)/15"
-  [style.left.px]="image.x"
-  [style.top.px]="image.y + image.height/2 - (image.width + image.height)/15/2"
+  [style.left.px]="0"
+  [style.top.px]="image.y + image.height/2 - 25"
   (click)="showPrevImage()"
 >
   <mat-icon
     svgIcon="arrow-left"
-    [style.width.px]="(image.width + image.height)/15"
-    [style.height.px]="(image.width + image.height)/15"
   >
   </mat-icon>
 </button>
 
 <button
   mat-button
-  [style.width.px]="(image.width + image.height)/15"
-  [style.height.px]="(image.width + image.height)/15"
-  [style.right.px]="image.x"
-  [style.top.px]="image.y + image.height/2 - (image.width + image.height)/15/2"
+  [style.right.px]="0"
+  [style.top.px]="image.y + image.height/2 - 25"
   (click)="showNextImage()"
 >
   <mat-icon
     svgIcon="arrow-right"
-    [style.width.px]="(image.width + image.height)/15"
-    [style.height.px]="(image.width + image.height)/15"
   >
   </mat-icon>
 </button>
