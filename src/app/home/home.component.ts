@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
+import { environment } from '../../environments/environment';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  collections: string[];
-  baseImageUrl: string = 'http://illustrators.ru/uploads/album_image/image/';
+  readonly baseImageUrl: string = environment.baseImageUrl;
+  collections: Array<any>;
 
   constructor() { }
 

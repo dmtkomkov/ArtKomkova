@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import { ImageComponent } from '../dialogs/image/image.component';
 
 import { collections } from './collection.consts';
+import { environment } from '../../environments/environment';
 
 import { DialogService } from '../services/dialog/dialog.service';
 
@@ -13,8 +14,8 @@ import { DialogService } from '../services/dialog/dialog.service';
   styleUrls: ['./collection.component.scss'],
 })
 export class CollectionComponent implements OnInit {
+  readonly baseImageUrl: string = environment.baseImageUrl;
   collection: Array<string>;
-  baseImageUrl: string = 'http://illustrators.ru/uploads/album_image/image/';
   selectedImage: string = null;
 
   constructor(
