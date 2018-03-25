@@ -49,7 +49,6 @@ export class CollectionComponent implements OnInit {
   }
 
   private getNextIndex(idx: number, len: number, direction: 'prev'|'next'): number {
-    console.log(idx, len, direction);
     if (direction == 'prev') return idx == 0? len - 1: idx - 1;
     if (direction == 'next') return len == idx + 1? 0: idx + 1;
   }
@@ -58,7 +57,7 @@ export class CollectionComponent implements OnInit {
     this.selectedImage = image;
     this.dialogService.openDialog(ImageComponent, {
       image: this.selectedImage,
-      imageIndex: this.collection.indexOf(this.selectedImage) + 1,
+      imageIndex: this.collection.indexOf(this.selectedImage),
       collectionLength: this.collection.length,
     });
   }
