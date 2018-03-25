@@ -30,19 +30,36 @@ export class CollectionComponent implements OnInit {
       });
 
     this.dialogService.dialogEvent.subscribe(res => {
+      if (this.selectedImage == null) {
+        return
+      }
+      if (res == null) {
+        this.selectedImage = null;
+        return
+      }
       let idx: number = this.collection.indexOf(this.selectedImage);
-      let prevIdx = idx==0? this.collection.length-1:idx-1
-      let nextIdx = this.collection.length==idx+1? 0:idx+1
-      if (res == 'prev') this.selectedImage = this.collection[prevIdx]
-      else if (res == 'next') this.selectedImage = this.collection[nextIdx]
-      else if (res == null) this.selectedImage = null
-      this.dialogService.changeDialogData({ image: this.selectedImage })
+      idx = this.getNextIndex(idx, this.collection.length, res);
+      this.selectedImage = this.collection[idx];
+      this.dialogService.changeDialogData({
+        image: this.selectedImage,
+        imageIndex: idx,
+        collectionLength: this.collection.length,
+      });
     });
+  }
+
+  private getNextIndex(idx: number, len: number, direction: 'prev'|'next'): number {
+    console.log(idx, len, direction);
+    if (direction == 'prev') return idx == 0? len - 1: idx - 1;
+    if (direction == 'next') return len == idx + 1? 0: idx + 1;
   }
 
   showImage(image) {
     this.selectedImage = image;
-    this.dialogService.openDialog(ImageComponent, { image: this.selectedImage });
-    //this.dialogService.changeDialogData({ image : '19921/0PmgzMwehFk.jpg' })
+    this.dialogService.openDialog(ImageComponent, {
+      image: this.selectedImage,
+      imageIndex: this.collection.indexOf(this.selectedImage) + 1,
+      collectionLength: this.collection.length,
+    });
   }
 }
