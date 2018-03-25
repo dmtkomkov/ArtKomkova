@@ -22,11 +22,12 @@ img {
 .mat-button {
   cursor: pointer;
   position: absolute;
-  @include icon-size(50px, 10px);
+  @include icon-size(48px, 10px);
   line-height: 0;
   padding: 0;
-  opacity: 0.3;
+  opacity: 0.5;
   margin: auto;
+  background-color: white;
 }
 
 .mat-button:hover {
@@ -34,7 +35,7 @@ img {
 }
 
 .mat-icon {
-  @include icon-size(50px, 10px);
+  @include icon-size(48px, 10px);
 }
 
 .mat-button.arrow-right {
@@ -47,4 +48,15 @@ img {
   top: 0;
   bottom: 0;
   left: 0;
+}
+
+.counter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+  opacity: 0.5;
+  background-color: white;
+  padding-left: 8px;
+  padding-right: 8px;
 }

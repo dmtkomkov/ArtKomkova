@@ -11,3 +11,7 @@
 <button mat-button class="arrow-right" (click)="showNextImage()">
   <mat-icon svgIcon="arrow-right"></mat-icon>
 </button>
+
+<div class="counter" [style.top.px]="image.y">
+  {{ data.imageIndex + 1 }} / {{ data.collectionLength }}
+</div>
