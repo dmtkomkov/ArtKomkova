@@ -1,3 +1,11 @@
+@mixin icon-size($size, $min-size) {
+  width: $size;
+  height: $size;
+  // Change default min size
+  min-width: $min-size;
+  min-height: $min-size;
+}
+
 img {
   max-height: 100%;
   max-width: 100%;
@@ -14,13 +22,11 @@ img {
 .mat-button {
   cursor: pointer;
   position: absolute;
-  min-width: 10px;
-  min-height: 10px;
-  width: 50px;
-  height: 50px;
+  @include icon-size(50px, 10px);
   line-height: 0;
   padding: 0;
   opacity: 0.3;
+  margin: auto;
 }
 
 .mat-button:hover {
@@ -28,8 +34,17 @@ img {
 }
 
 .mat-icon {
-  min-width: 10px;
-  min-height: 10px;
-  width: 50px;
-  height: 50px;
+  @include icon-size(50px, 10px);
+}
+
+.mat-button.arrow-right {
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.mat-button.arrow-left {
+  top: 0;
+  bottom: 0;
+  left: 0;
 }
