@@ -31,8 +31,10 @@ export class CollectionComponent implements OnInit {
 
     this.dialogService.dialogEvent.subscribe(res => {
       let idx: number = this.collection.indexOf(this.selectedImage);
-      if (res == 'prev') this.selectedImage = this.collection[idx - 1]
-      else if (res == 'next') this.selectedImage = this.collection[idx + 1]
+      let prevIdx = idx==0? this.collection.length-1:idx-1
+      let nextIdx = this.collection.length==idx+1? 0:idx+1
+      if (res == 'prev') this.selectedImage = this.collection[prevIdx]
+      else if (res == 'next') this.selectedImage = this.collection[nextIdx]
       else if (res == null) this.selectedImage = null
       this.dialogService.changeDialogData({ image: this.selectedImage })
     });
