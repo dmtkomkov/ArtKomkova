@@ -16,6 +16,7 @@ import { CollectionComponent } from './collection/collection.component';
 import { ImageComponent } from './dialogs/image/image.component';
 
 import { DialogService } from './services/dialog/dialog.service';
+import { ApiService } from './services/api/api.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -44,6 +45,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     DialogService,
+    ApiService,
   ],
   entryComponents: [ ImageComponent ],
   bootstrap: [ AppComponent ],
