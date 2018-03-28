@@ -13,16 +13,26 @@ export class ApiService {
     private http: HttpClient,
   ) { }
 
-  getFolderItems(folderId: string, mimeType: string = null): Observable<Item[]> {
+  buildHttpParams(
+    folderId: string,
+    mimeType: string = null,
+    name: string = null,
+  ): HttpParams {
     let query: string = `"${folderId}"+in+parents`
     if (mimeType != null) query += `+and+mimeType+=+"${mimeType}"`
-    let params: HttpParams = new HttpParams({
+    if (name != null) query += `+and+name+=+"${name}"`
+    return new HttpParams({
       fromObject: {
         'q': query,
         'key': environment.apiKey,
         'fields': 'files(mimeType,name,id,webContentLink)',
       }
     });
-    return this.http.get(environment.apiUrl, { params: params }).map(res => res.files);
+  }
+
+  getFolderItems(folderId: string, mimeType: string): Observable<Item[]> {
+    let params: HttpParams = this.buildHttpParams(folderId, mimeType)
+    return this.http.get(environment.apiUrl, { params: params })
+      .map(res => res.files);
   }
 }
