@@ -31,8 +31,14 @@ export class ApiService {
   }
 
   getFolderItems(folderId: string, mimeType: string): Observable<Item[]> {
-    let params: HttpParams = this.buildHttpParams(folderId, mimeType)
-    return this.http.get(environment.apiUrl, { params: params })
+    let params: HttpParams = this.buildHttpParams(folderId, mimeType);
+    return this.http.get<{files: Item[]}>(environment.apiUrl, { params: params })
       .map(res => res.files);
+  }
+
+  getFolderItem(folderId: string, name: string): Observable<Item> {
+    let params: HttpParams = this.buildHttpParams(folderId, 'image/jpeg', name);
+    return this.http.get<{files: Item[]}>(environment.apiUrl, { params: params })
+      .map(res => res.files.length > 0? res.files[0]: null);
   }
 }
