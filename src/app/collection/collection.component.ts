@@ -14,7 +14,7 @@ import { DISK_IMAGE_TYPE } from '../consts';
   styleUrls: ['./collection.component.scss'],
 })
 export class CollectionComponent implements OnInit {
-  images = Array<string>;
+  images: Array<string>;
   selectedImage: string = null;
 
   constructor(
