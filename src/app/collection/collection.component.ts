@@ -5,8 +5,10 @@ import { ImageComponent } from '../dialogs/image/image.component';
 
 import { collections } from './collection.consts';
 import { environment } from '../../environments/environment';
+import { DISK_IMAGE_TYPE } from '../consts';
 
 import { DialogService } from '../services/dialog/dialog.service';
+import { ApiService } from '../services/api/api.service';
 
 @Component({
   selector: 'app-collection',
@@ -16,19 +18,22 @@ import { DialogService } from '../services/dialog/dialog.service';
 export class CollectionComponent implements OnInit {
   readonly baseImageUrl: string = environment.baseImageUrl;
   collection: Array<string>;
+  images = Array<string>;
   selectedImage: string = null;
 
   constructor(
     private route: ActivatedRoute,
     private dialogService: DialogService,
+    private apiService: ApiService,
   ) { }
 
   ngOnInit() {
-    this.route.params
-      .map(params => params['name'])
-      .subscribe(name => {
-        this.collection = collections[name];
-      });
+    this.route.params.map(params => params['name']).subscribe(name => {
+      this.apiService.getFolderItems(name, DISK_IMAGE_TYPE).subscribe(items => {
+        this.images = items.map(item => item.webContentLink);
+      }
+      this.collection = collections[name];
+    });
 
     this.dialogService.dialogEvent.subscribe(res => {
       if (this.selectedImage == null) {
