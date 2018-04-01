@@ -6,7 +6,13 @@ export interface Item {
 }
 
 export interface Album {
-  id: string;
-  name: string;
-  coverUrl: string;
+  id: string,
+  name: string,
+  coverUrl: string,
+}
+
+export interface imageDialogData {
+  image: string,
+  imageIndex: number,
+  collectionLength: string,
 }
