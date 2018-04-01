@@ -4,3 +4,9 @@ export interface Item {
   mimeType: string,
   webContentLink?: string, // webContentLink available for files only
 }
+
+export interface Album {
+  id: string;
+  name: string;
+  coverUrl: string;
+}
