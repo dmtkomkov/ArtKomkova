@@ -3,15 +3,12 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { DialogService } from '../../services/dialog/dialog.service';
 
-import { environment } from '../../../environments/environment';
-
 @Component({
   selector: 'image',
   templateUrl: './image.component.html',
   styleUrls: ['./image.component.scss'],
 })
 export class ImageComponent {
-  readonly baseImageUrl: string = environment.baseImageUrl;
 
   constructor(
     private dialogService: DialogService,
