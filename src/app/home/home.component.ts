@@ -4,7 +4,7 @@ import 'rxjs/add/observable/of';
 
 import { ApiService } from '../services/api/api.service';
 
-import { RootFolderId, DISK_FOLDER_TYPE, DISK_IMAGE_TYPE } from '../consts';
+import { ROOT_FOLDER_ID, DISK_FOLDER_TYPE, DISK_IMAGE_TYPE } from '../consts';
 import { Album } from '../interfaces';
 
 @Component({
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     // looking for covers
-    this.apiService.getFolderItems(RootFolderId).subscribe(items => {
+    this.apiService.getFolderItems(ROOT_FOLDER_ID).subscribe(items => {
       // Group items by folder and file names
       // {name:  {memType<file>: item<file>, mimeType<folder>: item<folder>}}
       let albumItems = {};
