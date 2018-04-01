@@ -1,8 +1,8 @@
 <div class="container" fxLayout="row wrap" fxLayoutAlign="start">
-  <a routerLink="/collections/{{collection.name}}" class="item" *ngFor="let collection of collections">
+  <a routerLink="/collections/{{album.id}}" class="item" *ngFor="let album of albums">
     <div class="image"> <!-- Wrapper for soft image transition -->
-      <img [src]="baseImageUrl + collection.cover">
+      <img [src]="album.coverUrl">
     </div>
-    <div class="text">{{ collection.name }}</div>
+    <div class="text">{{ album.name }}</div>
   </a>
 </div>
