@@ -3,12 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { ImageComponent } from '../dialogs/image/image.component';
 
-import { collections } from './collection.consts';
-import { environment } from '../../environments/environment';
-import { DISK_IMAGE_TYPE } from '../consts';
-
 import { DialogService } from '../services/dialog/dialog.service';
 import { ApiService } from '../services/api/api.service';
+
+import { DISK_IMAGE_TYPE } from '../consts';
 
 @Component({
   selector: 'app-collection',
@@ -16,8 +14,6 @@ import { ApiService } from '../services/api/api.service';
   styleUrls: ['./collection.component.scss'],
 })
 export class CollectionComponent implements OnInit {
-  readonly baseImageUrl: string = environment.baseImageUrl;
-  collection: Array<string>;
   images = Array<string>;
   selectedImage: string = null;
 
@@ -32,7 +28,6 @@ export class CollectionComponent implements OnInit {
       this.apiService.getFolderItems(name, DISK_IMAGE_TYPE).subscribe(items => {
         this.images = items.map(item => item.webContentLink);
       }
-      this.collection = collections[name];
     });
 
     this.dialogService.dialogEvent.subscribe(res => {
@@ -43,13 +38,13 @@ export class CollectionComponent implements OnInit {
         this.selectedImage = null;
         return
       }
-      let idx: number = this.collection.indexOf(this.selectedImage);
-      idx = this.getNextIndex(idx, this.collection.length, res);
-      this.selectedImage = this.collection[idx];
+      let idx: number = this.images.indexOf(this.selectedImage);
+      idx = this.getNextIndex(idx, this.images.length, res);
+      this.selectedImage = this.images[idx];
       this.dialogService.changeDialogData({
         image: this.selectedImage,
         imageIndex: idx,
-        collectionLength: this.collection.length,
+        collectionLength: this.images.length,
       });
     });
   }
@@ -63,8 +58,8 @@ export class CollectionComponent implements OnInit {
     this.selectedImage = image;
     this.dialogService.openDialog(ImageComponent, {
       image: this.selectedImage,
-      imageIndex: this.collection.indexOf(this.selectedImage),
-      collectionLength: this.collection.length,
+      imageIndex: this.images.indexOf(this.selectedImage),
+      collectionLength: this.images.length,
     });
   }
 }
