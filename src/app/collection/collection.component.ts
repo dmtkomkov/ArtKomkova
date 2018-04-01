@@ -27,7 +27,7 @@ export class CollectionComponent implements OnInit {
     this.route.params.map(params => params['name']).subscribe(name => {
       this.apiService.getFolderItems(name, DISK_IMAGE_TYPE).subscribe(items => {
         this.images = items.map(item => item.webContentLink);
-      }
+      });
     });
 
     this.dialogService.dialogEvent.subscribe(res => {
