@@ -1,6 +1,8 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { ComponentRef, Injectable, EventEmitter } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { ImageComponent } from '../../dialogs/image/image.component';
+
+import { ImageDialogData } from '../../interfaces';
 
 @Injectable()
 export class DialogService {
@@ -13,7 +15,7 @@ export class DialogService {
     this.dialogEvent = new EventEmitter();
   }
 
-  openDialog(component: any, data: any) {
+  openDialog(component: any, data: ImageDialogData) {
     this.dialogRef = this.dialog.open(component, { data: data });
   }
 
