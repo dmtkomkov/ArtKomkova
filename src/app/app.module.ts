@@ -20,7 +20,7 @@ import { ApiService } from './services/api/api.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'collections/:name', component: CollectionComponent },
+  { path: 'collections/:folderId', component: CollectionComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
