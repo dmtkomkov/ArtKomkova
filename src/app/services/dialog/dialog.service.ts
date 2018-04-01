@@ -1,9 +1,10 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { ImageComponent } from '../../dialogs/image/image.component';
 
 @Injectable()
 export class DialogService {
-  private dialogRef: MatDialogRef<any>;
+  private dialogRef: MatDialogRef<ImageComponent>;
   public dialogEvent: EventEmitter<string>;
 
   constructor(
