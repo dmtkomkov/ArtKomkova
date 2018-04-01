@@ -5,7 +5,6 @@
 
 export const environment = {
   production: false,
-  baseImageUrl: 'https://illustrators.ru/uploads/album_image/image/',
   apiKey: 'AIzaSyDq8KjviNKlYSpiIsyS1t1SS5YPoqC532o',
   apiUrl: 'https://www.googleapis.com/drive/v3/files',
 };
