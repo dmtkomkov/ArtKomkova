@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
+import { ApiService } from '../services/api/api.service';
+
 import { environment } from '../../environments/environment';
+import { RootFolderId } from '../consts';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +16,19 @@ export class HomeComponent implements OnInit {
   readonly baseImageUrl: string = environment.baseImageUrl;
   collections: Array<any>;
 
-  constructor() { }
+  constructor(
+    private apiService: ApiService,
+  ) { }
 
   ngOnInit() {
+    // looking for covers
+    this.apiService.getFolderItems(RootFolderId)
+      .subscribe(items => {
+        for (let item of items) {
+          console.log(item);
+        }
+      });
+
     this.getCollections().subscribe(
       collections => {
         this.collections = collections;
