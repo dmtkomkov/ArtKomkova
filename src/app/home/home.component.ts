@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
         if (item.mimeType == DISK_FOLDER_TYPE) name = item.name;
         else name = item.name.split('.')[0];
 
-        if !(name in albumItems) albumItems[name] = {};
+        if (!(name in albumItems)) albumItems[name] = {};
         albumItems[name][item.mimeType] = item;
       }
 
