@@ -1,7 +1,9 @@
+
+import {map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs';
+
 
 import { environment } from '../../../environments/environment';
 import { Item } from '../../interfaces';
@@ -32,13 +34,15 @@ export class ApiService {
 
   getFolderItems(folderId: string, mimeType: string = null): Observable<Item[]> {
     let params: HttpParams = this.buildHttpParams(folderId, mimeType);
-    return this.http.get<{files: Item[]}>(environment.apiUrl, { params: params })
-      .map(res => res.files);
+    return this.http.get<{files: Item[]}>(environment.apiUrl, { params: params }).pipe(
+      map(res => res.files)
+    );
   }
 
   getFolderItem(folderId: string, name: string): Observable<Item> {
     let params: HttpParams = this.buildHttpParams(folderId, 'image/jpeg', name);
-    return this.http.get<{files: Item[]}>(environment.apiUrl, { params: params })
-      .map(res => res.files.length > 0? res.files[0]: null);
+    return this.http.get<{files: Item[]}>(environment.apiUrl, { params: params }).pipe(
+      map(res => res.files.length > 0? res.files[0]: null)
+    );
   }
 }

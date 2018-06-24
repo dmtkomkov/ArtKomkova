@@ -1,10 +1,12 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import 'rxjs/add/operator/map';
+
 import { ImageComponent } from '../dialogs/image/image.component';
 
 import { DialogService } from '../services/dialog/dialog.service';
 import { ApiService } from '../services/api/api.service';
+
+import { map } from 'rxjs/operators';
 
 import { DISK_IMAGE_TYPE } from '../consts';
 
@@ -24,7 +26,7 @@ export class CollectionComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.params.map(params => params['folderId']).subscribe(folderId => {
+    this.route.params.pipe(map(params => params['folderId'])).subscribe(folderId => {
       this.apiService.getFolderItems(folderId, DISK_IMAGE_TYPE).subscribe(items => {
         this.images = items.map(item => item.webContentLink);
       });
