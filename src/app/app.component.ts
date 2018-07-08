@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
     'close',
     'arrow-left',
     'arrow-right',
+    'contact-email',
   ]
   constructor(
     private iconRegistry: MatIconRegistry,
