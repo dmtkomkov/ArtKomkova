@@ -7,12 +7,8 @@
 
   a {
     font-size: 16px; // Increase logo text
-    vertical-align: text-bottom;
-    width: 100%;
-  }
-
-  .email {
-    font-size: 16px;
+    vertical-align: text-bottom; // Align to text
+    width: 100%; // Ancor should wrap both image and text
   }
 
   .fill-space {
