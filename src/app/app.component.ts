@@ -8,6 +8,7 @@ import { MatIconRegistry } from '@angular/material';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  readonly email: string = 'alena.komv@gmail.com';
   readonly icons = [
     'color-lens',
     'close',
@@ -15,6 +16,7 @@ export class AppComponent implements OnInit {
     'arrow-right',
     'contact-email',
   ]
+
   constructor(
     private iconRegistry: MatIconRegistry,
     private sanitizer: DomSanitizer,
@@ -29,6 +31,9 @@ export class AppComponent implements OnInit {
         )
       );
     }
+  }
 
+  openEmail() {
+    window.open('mailto:' + this.email, '_self');
   }
 }
